@@ -1,0 +1,16 @@
+@{
+    var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+
+    if (claimsIdentity != null)
+    {
+        var c = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+
+        if (c != null)
+        {
+            <p>
+                @c.Type.ToString();
+                @c.Value.ToString();
+            </p>
+        }
+    }
+}
